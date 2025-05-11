@@ -1,7 +1,8 @@
 import os
 
-b = os.path.isdir("progekt")
-c = os.listdir("progekt")
+original_path = "progekt"
+b = os.path.isdir(original_path)
+c = os.listdir(original_path)
 """ создать функцию которая принимает директорию
 проверяет является ли она директоией, если да, 
 то проваливается ниже и повторяет процесс, если нет то
