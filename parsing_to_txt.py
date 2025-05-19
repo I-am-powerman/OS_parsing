@@ -1,8 +1,14 @@
 import os
 
-original_path = "progekt"
+
 b = os.path.isdir(original_path)
 c = os.listdir(original_path)
+
+class parsing_to_txt():
+    original_path = "progekt"
+
+
+    
 """ создать функцию которая принимает директорию
 проверяет является ли она директоией, если да, 
 то проваливается ниже и повторяет процесс, если нет то
