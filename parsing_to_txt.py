@@ -6,14 +6,14 @@ class parsing_to_txt():
     def __init__(self, original_path: str):
         self.original_path :str = original_path
     
-    def docx_max_path(self):
+    def docx_max_path(self) -> str:
        self._read_file(self.original_path)
        max_keys = max(self.path_docx.keys())
        file_max_path = self.path_docx[max_keys]
 
        return file_max_path
     
-    def docx_min_path(self):
+    def docx_min_path(self) -> str:
        self._read_file(self.original_path)
        min_keys = min(self.path_docx.keys())
        file_min_path = self.path_docx[min_keys]
@@ -27,10 +27,15 @@ class parsing_to_txt():
                 self._read_file(path + "/" + list_directory[i])
         else:
             iter = len(path.split("/"))
-            docx = self._write_docx(path)
-            self.path_docx[iter] = docx
+            docx = self._name_docx(path)
+            if iter in self.path_docx.keys():
+                if not docx in self.path_docx[iter]:
+                    self.path_docx[iter] += ", " + docx
+            else:
+                self.path_docx[iter] = docx
+            
     
-    def _write_docx(self, docx: str) -> str:
+    def _name_docx(self, docx: str) -> str:
         name_docx = docx.split("/")
         name_docx = name_docx[-1]
 
