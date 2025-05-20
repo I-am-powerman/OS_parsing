@@ -23,8 +23,8 @@ class parsing_to_txt():
     def _read_file(self, path: str):
         if os.path.isdir(path):
             list_directory = os.listdir(path)
-            for i in range(len(list_directory)):
-                self._read_file(path + "/" + list_directory[i])
+            for i in list_directory:
+                self._read_file(path + "/" + i)
         else:
             iter = len(path.split("/"))
             docx = self._name_docx(path)
@@ -33,7 +33,6 @@ class parsing_to_txt():
                     self.path_docx[iter] += ", " + docx
             else:
                 self.path_docx[iter] = docx
-            
     
     def _name_docx(self, docx: str) -> str:
         name_docx = docx.split("/")
